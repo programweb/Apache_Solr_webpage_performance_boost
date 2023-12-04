@@ -1,6 +1,9 @@
 # Apache Solr Search with webpage performance boost
 ## Techniques used to deal with execution timeouts and high memory usage.
 
+Solr is the popular, fast, open source enterprise search platform built on Apache Lucene
+&nbsp;
+
 1. Change the ini server configurations on-the-fly just in the function ihme_search_export_build_csv
    * Usually you can get away with just putting these ini_set calls at the top of the file; however, since the search is on almost every page, doing that was equivalent to changing the ini server configs globally. Doing it globally would cause other problems; eg: if you have a page with an error it might take a long time to finish loading and resolve.
    * I experimented with a number of settings but found significantly increasing the **max execution time and memory limit** to be critical to address the bug in question.
